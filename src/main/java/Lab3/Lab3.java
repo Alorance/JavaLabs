@@ -7,6 +7,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+@SpringBootApplication
+class Application {
+
+    public static void main(String[] args) {
+        SpringApplication.run(Application.class, args);
+    }
+}
+
 @Controller
 class GreetingController {
 
@@ -14,14 +22,5 @@ class GreetingController {
     public String greeting(@RequestParam(name="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
         return "greeting";
-    }
-
-}
-
-@SpringBootApplication
-class ServingWebContentApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(ServingWebContentApplication.class, args);
     }
 }
